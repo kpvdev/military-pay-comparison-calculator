@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pay Comparison Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora&family=Play&family=Quattrocento:wght@700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="main-container">
+        <h1 class="light-font" id="main-heading">Pay Comparison Calculator</h1>
+        <div class="flex-container">
+            <!-- Job 1 -->
+            <div class="job-container job-container-left">
+                <h1>Career 1</h1>
+                <h2>Required Information</h2>
+                <form>
+                    <div class="content-container">
+                        <!-- Career 1 Rank selection -->
+                        <label for="career-one-rank">RANK</label>
+                        <select id="career-one-rank" name="career-one-rank">
+                            <option value="" disabled selected hidden>Select rank...</option>
+                            <option value="E1">E-1 - Airman Basic</option>
+                            <option value="E2">E-2 - Airman</option>
+                            <option value="E3">E-3 - Airman First Class</option>
+                            <option value="E4">E-4 - Senior Airman</option>
+                            <option value="E5">E-5 - Staff Sergeant</option>
+                            <option value="E6">E-6 - Technical Sergeant</option>
+                            <option value="E7">E-7 - Master Sergeant</option>
+                            <option value="E8">E-8 - Senior Master Sergeant</option>
+                            <option value="E9">E-9 - Chief Master Sergeant</option>
+                            <option value="O1E">O-1E - Prior Enlisted / Second Lieutenant</option>
+                            <option value="O2E">O-2E - Prior Enlisted / First Lieutenant</option>
+                            <option value="O3E">O-3E - Prior Enlisted / Captain</option>
+                        </select>
+                        <!-- Career 1 Years-Of-Service selection -->
+                        <label for="career-one-years-of-service">YEARS OF SERVICE</label>
+                        <select class="placeholder" id="career-one-years-of-service" name="career-one-years-of-service">
+                            <option class="placeholder" value="" disabled selected hidden>Select years of service...
+                            </option>
+                            <option value="0">Less than 2 years</option>
+                            <option value="2">2 years</option>
+                            <option value="3">3 years</option>
+                            <option value="4">4 years</option>
+                            <option value="6">6 years</option>
+                            <option value="8">8 years</option>
+                            <option value="10">10 years</option>
+                            <option value="12">12 years</option>
+                            <option value="14">14 years</option>
+                            <option value="16">16 years</option>
+                            <option value="18">18 years</option>
+                            <option value="20">20 years</option>
+                            <option value="22">22 years</option>
+                            <option value="24">24 years</option>
+                            <option value="26">26 years</option>
+                            <option value="28">28 years</option>
+                            <option value="30">30 years</option>
+                            <option value="32">32 years</option>
+                            <option value="34">34 years</option>
+                            <option value="36">36 years</option>
+                            <option value="38">38 years</option>
+                            <option value="40">40 years</option>
+                        </select>
+                        <!-- Career 1 BAH section -->
+                        <label for="career-one-bah-rate">BAH RATE</label>
+                        <input class="placeholder" placeholder="Enter your monthly BAH rate..." type="number"
+                            id="career-one-bah-rate" name="career-one-bah-rate" onchange="formatCurrency()">
+                        <!-- Career 1 SDAP section -->
+                        <label for="career-one-sdap-rate">SDAP</label>
+                        <select id="career-one-sdap-rate" name="career-one-sdap-rate">
+                            <option value="" disabled selected hidden>Do you receive SDAP?</option>
+                            <option value="SD-0">I don't receive SDAP</option>
+                            <option value="SD-1">SD-1 - $75</option>
+                            <option value="SD-2">SD-2 - $150</option>
+                            <option value="SD-3">SD-3 - $225</option>
+                            <option value="SD-4">SD-4 - $300</option>
+                            <option value="SD-5">SD-5 - $375</option>
+                            <option value="SD-6">SD-6 - $450</option>
+                        </select>
+                        <!-- Career 1 CAIP section -->
+                        <label for="career-one-caip-rate">CAIP</label>
+                        <select id="career-one-caip-rate" name="career-one-caip-rate">
+                            <option value="" disabled selected hidden>Do you receive CAIP?</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <!-- Career 1 Buttons -->
+                    <div class="button-container">
+                        <input class="clear-button" type="button" id="career-one-clear-button" value="Clear Form"
+                            required>
+                        <input class="calculate-button" type="button" id="career-one-calculate-button" value="Calculate"
+                            required>
+                    </div>
+                </form>
+                <h2>Monthly Entitlements</h2>
+                <div class="content-container">
+                    <!-- Career 1 Monthly Base Pay -->
+                    <label for="career-one-monthly-base-pay">MONTHLY BASE PAY</label>
+                    <p class="result" id="career-one-monthly-base-pay"></p>
+                    <!-- Career 1 Monthly BAS Pay -->
+                    <label for="career-one-monthly-bas-pay">MONTHLY BAS</label>
+                    <p class="result" id="career-one-monthly-bas-pay"></p>
+                    <!-- Career 1 Monthly BAH Pay -->
+                    <label for="career-one-monthly-bah-pay">MONTHLY BAH</label>
+                    <p class="result" id="career-one-monthly-bah-pay"></p>
+                    <!-- Career 1 Monthly SDAP Pay -->
+                    <label for="career-one-monthly-sdap-pay">MONTHLY SDAP</label>
+                    <p class="result" id="career-one-monthly-sdap-pay"></p>
+                </div>
+                <h2>Annual Entitlements</h2>
+                <div class="content-container">
+                    <!-- Career 1 Annual Base Pay -->
+                    <label for="career-one-annual-base-pay">ANNUAL BASE PAY</label>
+                    <p class="result" id="career-one-annual-base-pay"></p>
+                    <!-- Career 1 Annual BAS Pay -->
+                    <label for="career-one-annual-bas-pay">ANNUAL BAS</label>
+                    <p class="result" id="career-one-annual-bas-pay"></p>
+                    <!-- Career 1 Annual BAH Pay -->
+                    <label for="career-one-annual-bah-pay">ANNUAL BAH</label>
+                    <p class="result" id="career-one-annual-bah-pay"></p>
+                    <!-- Career 1 Annual SDAP Pay -->
+                    <label for="career-one-annual-sdap-pay">ANNUAL SDAP</label>
+                    <p class="result" id="career-one-annual-sdap-pay"></p>
+                </div>
+                <!--  <h2>Deductions</h2>
+            <div class="content-container">
+              <label for="monthly-federal-taxes">MONTHLY FEDERAL TAXES</label>
+              <p class="result" id="monthly-federal-taxes"></p>
+              <label for="bah-pay">ANNUAL BAH</label>
+              <p class="result" id="bah-pay"></p>
+              <label for="sdap-pay">ANNUAL SDAP</label>
+              <p class="result" id="sdap-pay"></p>
+            </div> -->
+                <h2>Total Gross Income</h2>
+                <div class="content-container">
+                    <label for="career-one-annual-gross-income">ANNUAL GROSS INCOME</label>
+                    <p class="result" id="career-one-annual-gross-income"></p>
+                    <label for="career-one-monthly-gross-income">MONTHLY GROSS INCOME</label>
+                    <p class="result" id="career-one-monthly-gross-income"></p>
+                    <label for="career-one-hourly-gross-income">HOURLY GROSS INCOME</label>
+                    <p class="result" id="career-one-hourly-gross-income"></p>
+                </div>
+                <h2>Total Net Income</h2>
+                <div class="content-container">
+                    <label for="career-one-annual-net-income">ANNUAL NET INCOME</label>
+                    <p class="result" id="career-one-annual-net-income"></p>
+                    <label for="career-one-monthly-net-income">MONTHLY NET INCOME</label>
+                    <p class="result" id="career-one-monthly-net-income"></p>
+                    <label for="career-one-hourly-net-income">HOURLY NET INCOME</label>
+                    <p class="result" id="career-one-hourly-net-income"></p>
+                </div>
+            </div>
+            <!-- Job 2 -->
+            <div class="job-container job-container-right">
+                <h1>Career 2</h1>
+                <h2>Required Information</h2>
+                <form>
+                    <div class="content-container">
+                        <!-- Career 2 Rank selection -->
+                        <label for="career-two-rank">RANK</label>
+                        <select id="career-two-rank" name="career-two-rank">
+                            <option value="" disabled selected hidden>Select rank...</option>
+                            <option value="E1">E-1 - Airman Basic</option>
+                            <option value="E2">E-2 - Airman</option>
+                            <option value="E3">E-3 - Airman First Class</option>
+                            <option value="E4">E-4 - Senior Airman</option>
+                            <option value="E5">E-5 - Staff Sergeant</option>
+                            <option value="E6">E-6 - Technical Sergeant</option>
+                            <option value="E7">E-7 - Master Sergeant</option>
+                            <option value="E8">E-8 - Senior Master Sergeant</option>
+                            <option value="E9">E-9 - Chief Master Sergeant</option>
+                            <option value="O1E">O-1E - Prior Enlisted / Second Lieutenant</option>
+                            <option value="O2E">O-2E - Prior Enlisted / First Lieutenant</option>
+                            <option value="O3E">O-3E - Prior Enlisted / Captain</option>
+                        </select>
+                        <!-- Career 2 Years-Of-Service selection -->
+                        <label for="career-two-years-of-service">YEARS OF SERVICE</label>
+                        <select id="career-two-years-of-service" name="career-two-years-of-service">
+                            <option value="" disabled selected hidden>Select years of service...</option>
+                            <option value="0">Less than 2 years</option>
+                            <option value="2">2 years</option>
+                            <option value="3">3 years</option>
+                            <option value="4">4 years</option>
+                            <option value="6">6 years</option>
+                            <option value="8">8 years</option>
+                            <option value="10">10 years</option>
+                            <option value="12">12 years</option>
+                            <option value="14">14 years</option>
+                            <option value="16">16 years</option>
+                            <option value="18">18 years</option>
+                            <option value="20">20 years</option>
+                            <option value="22">22 years</option>
+                            <option value="24">24 years</option>
+                            <option value="26">26 years</option>
+                            <option value="28">28 years</option>
+                            <option value="30">30 years</option>
+                            <option value="32">32 years</option>
+                            <option value="34">34 years</option>
+                            <option value="36">36 years</option>
+                            <option value="38">38 years</option>
+                            <option value="40">40 years</option>
+                        </select>
+                        <!-- Career 2 BAH selection -->
+                        <label for="career-two-bah-rate">BAH RATE</label>
+                        <input placeholder="Enter your monthly BAH rate..." type="number" id="career-two-bah-rate"
+                            name="career-two-bah-rate" onchange="formatCurrency()">
+                        <!-- Career 2 SDAP selection -->
+                        <label for="career-two-sdap-rate">SDAP</label>
+                        <select id="career-two-sdap-rate" name="career-two-sdap-rate">
+                            <option value="" disabled selected hidden>Do you receive SDAP?</option>
+                            <option value="SD-0">No</option>
+                            <option value="SD-1">SD-1 - $75</option>
+                            <option value="SD-2">SD-2 - $150</option>
+                            <option value="SD-3">SD-3 - $225</option>
+                            <option value="SD-4">SD-4 - $300</option>
+                            <option value="SD-5">SD-5 - $375</option>
+                            <option value="SD-6">SD-6 - $450</option>
+                        </select>
+                        <!-- Career 2 CAIP section -->
+                        <label for="career-two-caip-rate">CAIP</label>
+                        <select id="career-two-caip-rate" name="career-two-caip-rate">
+                            <option value="" disabled selected hidden>Do you receive CAIP?</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <!-- Career 2 Buttons -->
+                    <div class="button-container">
+                        <input class="clear-button" type="button" id="career-two-clear-button" value="Clear Form"
+                            required>
+                        <input class="calculate-button" type="button" id="career-two-calculate-button" value="Calculate"
+                            required>
+                    </div>
+                </form>
+                <h2>Monthly Entitlements</h2>
+                <div class="content-container">
+                    <label for="career-two-monthly-base-pay">MONTHLY BASE PAY</label>
+                    <p class="result" id="career-two-monthly-base-pay"></p>
+                    <label for="career-two-monthly-bas-pay">MONTHLY BAS</label>
+                    <p class="result" id="career-two-monthly-bas-pay"></p>
+                    <label for="career-two-monthly-bah-pay">MONTHLY BAH</label>
+                    <p class="result" id="career-two-monthly-bah-pay"></p>
+                    <label for="career-two-monthly-sdap-pay">MONTHLY SDAP</label>
+                    <p class="result" id="career-two-monthly-sdap-pay"></p>
+                </div>
+                <h2>Annual Entitlements</h2>
+                <div class="content-container">
+                    <label for="career-two-annual-base-pay">ANNUAL BASE PAY</label>
+                    <p class="result" id="career-two-annual-base-pay"></p>
+                    <label for="career-two-annual-bas-pay">ANNUAL BAS</label>
+                    <p class="result" id="career-two-annual-bas-pay"></p>
+                    <label for="career-two-annual-bah-pay">ANNUAL BAH</label>
+                    <p class="result" id="career-two-annual-bah-pay"></p>
+                    <label for="career-two-annual-sdap-pay">ANNUAL SDAP</label>
+                    <p class="result" id="career-two-annual-sdap-pay"></p>
+                </div>
+                <!--       <h2>Deductions</h2>
+            <div class="content-container">
+              <label for="monthly-federal-taxes">MONTHLY FEDERAL TAXES</label>
+              <p class="result" id="monthly-federal-taxes"></p>
+              <label for="bah-pay">ANNUAL BAH</label>
+          <p class="result" id="bah-pay"></p>
+          <label for="sdap-pay">ANNUAL SDAP</label>
+          <p class="result" id="sdap-pay"></p>
+            </div> -->
+                <h2>Total Gross Income</h2>
+                <div class="content-container">
+                    <label for="career-two-annual-gross-income">ANNUAL GROSS INCOME</label>
+                    <p class="result" id="career-two-annual-gross-income"></p>
+                    <label for="career-two-monthly-gross-income">MONTHLY GROSS INCOME</label>
+                    <p class="result" id="career-two-monthly-gross-income"></p>
+                    <label for="career-two-hourly-gross-income">HOURLY GROSS INCOME</label>
+                    <p class="result" id="career-two-hourly-gross-income"></p>
+                </div>
+                <h2>Total Net Income</h2>
+                <div class="content-container">
+                    <label for="career-two-annual-net-income">ANNUAL NET INCOME</label>
+                    <p class="result" id="career-two-annual-net-income"></p>
+                    <label for="career-two-monthly-net-income">MONTHLY NET INCOME</label>
+                    <p class="result" id="career-two-monthly-net-income"></p>
+                    <label for="career-two-hourly-net-income">HOURLY NET INCOME</label>
+                    <p class="result" id="career-two-hourly-net-income"></p>
+                </div>
+            </div>
+        </div>
+        <input class="calculate-disparity-button" type="button" id="calculate-disparity-button"
+            value="Calculate Difference" required>
+    </div>
+
+    <div id="error-modal" class="modal">
+        <div class="modal-content">
+            <h2>Error</h2>
+            <p id="error-message"></p>
+            <button id="close-error-modal">Close</button>
+        </div>
+    </div>
+    <script src="pay-comparison.js"></script>
+</body>
+
+</html>
