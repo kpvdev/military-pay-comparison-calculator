@@ -448,6 +448,7 @@ function convertToFloat(value) {
 
 function clearCareerOneValues() {
     // Clears "Career 1" Required Information section
+    document.getElementById("career-one-calendar-year").value = "";
     document.getElementById("career-one-rank").value = "";
     document.getElementById("career-one-years-of-service").value = "";
     document.getElementById("career-one-bah-rate").value = "";
@@ -479,6 +480,7 @@ function clearCareerOneValues() {
 
 function clearCareerTwoValues() {
     // Clears "Career 2" Required Information section
+    document.getElementById("career-two-calendar-year").value = "";
     document.getElementById("career-two-rank").value = "";
     document.getElementById("career-two-years-of-service").value = "";
     document.getElementById("career-two-bah-rate").value = "";
