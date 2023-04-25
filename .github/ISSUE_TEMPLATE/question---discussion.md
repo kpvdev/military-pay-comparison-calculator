@@ -1,7 +1,7 @@
 ---
 name: Question / Discussion
 about: Submit a question / start a discussion
-title: "[Question]"
+title: ''
 labels: Question
 assignees: ''
 
