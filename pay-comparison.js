@@ -345,7 +345,7 @@ function lookupPayData(rank, yearsOfService, bahRate, sdapRate, careerColumn) {
     };
 
     // Look up pay data based on rank and years of service
-    const monthlyBasePay = (payData[rank.value][yearsOfService.value]).toFixed(2) || 0;
+    const monthlyBasePay = await fetchBasePay(rank, calendarYear, yearsOfService);
     const annualBasePay = (monthlyBasePay * 12).toFixed(2);
 
     // Calculate BAS
