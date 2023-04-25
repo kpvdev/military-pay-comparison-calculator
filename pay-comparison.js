@@ -538,3 +538,22 @@ function showErrorModal(errorMessage) {
 // A summarization of the pay disparity should be displayed.
 // A "Start Over" button should appear at the bottom of the summarization.
 // It should hide the summary and reset ALL the fields.
+
+
+function fetchBasePay(payGrade, calendarYear, yearsOfService) {
+    const jsonPath = `entitlements/${calendarYear}/${calendarYear}-Base-Pay.json`;
+    loadingSpinner.style.display = "block";
+    return fetch(jsonPath)
+        .then(response => response.json())
+        .then(data => {
+            const basePay = data[payGrade][yearsOfService];
+            // console.log(`The base pay for an ${payGrade} with ${yearsOfService} years of service, in ${calendarYear}, is $${basePay.toFixed(2)}.`);
+            loadingSpinner.style.display = "none";
+            return basePay.toFixed(2);
+        })
+        .catch(error => {
+            loadingSpinner.style.display = "none";
+            console.error(error);
+        });
+}
+
