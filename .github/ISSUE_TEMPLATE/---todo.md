@@ -1,7 +1,7 @@
 ---
 name: "// TODO"
 about: Use this template for things that need to get done!
-title: ''
+title: "\U0001F6E0️"
 labels: "//TODO"
 assignees: ''
 
