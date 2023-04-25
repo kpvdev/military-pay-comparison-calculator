@@ -1,5 +1,6 @@
 // This code selects our HTML elements for the "Career 1" section
 const careerOneColumn = 1;
+const careerOneCalendarYear = document.getElementById("career-one-calendar-year");
 const careerOneRank = document.getElementById("career-one-rank");
 const careerOneYearsOfService = document.getElementById("career-one-years-of-service");
 const careerOneBAH = parseFloat(document.getElementById("career-one-bah-rate").value).toFixed(2);
@@ -10,6 +11,7 @@ const careerOneClearButton = document.getElementById('career-one-clear-button');
 
 // This code selects our HTML elements for the "Career 2" section
 const careerTwoColumn = 2;
+const careerTwoCalendarYear = document.getElementById("career-two-calendar-year");
 const careerTwoRank = document.getElementById("career-two-rank");
 const careerTwoYearsOfService = document.getElementById("career-two-years-of-service");
 const careerTwoBAH = parseFloat(document.getElementById("career-two-bah-rate").value).toFixed(2);
