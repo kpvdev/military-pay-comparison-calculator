@@ -26,11 +26,11 @@ const loadingSpinner = document.getElementById('loading-spinner');
 // This code attaches event listeners to our buttons in the "Career 1" and "Career 2" sections
 careerOneClearButton.addEventListener('click', clearCareerOneValues);
 careerOneCalculateButton.addEventListener('click', function () {
-    calculatePay(careerOneRank, careerOneYearsOfService, careerOneBAH, careerOneSDAP, careerOneColumn);
+    calculatePay(careerOneCalendarYear.value, careerOneRank.value, careerOneYearsOfService.value, careerOneBAH.value, careerOneSDAP.value, careerOneColumn);
 });
 careerTwoClearButton.addEventListener('click', clearCareerTwoValues);
 careerTwoCalculateButton.addEventListener('click', function () {
-    calculatePay(careerTwoRank, careerTwoYearsOfService, careerTwoBAH, careerTwoSDAP, careerTwoColumn);
+    calculatePay(careerTwoCalendarYear.value, careerTwoRank.value, careerTwoYearsOfService.value, careerTwoBAH.value, careerTwoSDAP.value, careerTwoColumn);
 });
 
 // This function is called when one of the two "Calculate" buttons is clicked
