@@ -580,3 +580,20 @@ function fetchBASRate(payGrade, calendarYear) {
             console.error(error);
         });
 }
+
+function fetchSDAPRate(SDAPCode, calendarYear) {
+    const jsonPath = `entitlements/${calendarYear}/${calendarYear}-SDAP-Rates.json`;
+    loadingSpinner.style.display = "block";
+    return fetch(jsonPath)
+        .then(response => response.json())
+        .then(data => {
+            const SDAPRate = data[SDAPCode];
+            // console.log(`The SDAP Rate for ${SDAPCode} in ${calendarYear} is $${SDAPRate.toFixed(2)}.`);
+            loadingSpinner.style.display = "none";
+            return SDAPRate.toFixed(2);
+        })
+        .catch(error => {
+            loadingSpinner.style.display = "none";
+            console.error(error);
+        });
+}
