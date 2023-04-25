@@ -357,7 +357,7 @@ function lookupPayData(rank, yearsOfService, bahRate, sdapRate, careerColumn) {
     const annualBAH = (monthlyBAH * 12).toFixed(2);
 
     // Calculate SDAP
-    const monthlySDAP = (sdapData[sdapRate.value]).toFixed(2) || 0;
+    const monthlySDAP = await fetchSDAPRate(SDAPCode, calendarYear);
     const annualSDAP = (monthlySDAP * 12).toFixed(2);
 
     //Calculate gross income
