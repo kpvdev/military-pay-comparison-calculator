@@ -20,6 +20,9 @@ const careerTwoCAIP = document.getElementById("career-two-caip-rate");
 const careerTwoCalculateButton = document.getElementById('career-two-calculate-button');
 const careerTwoClearButton = document.getElementById('career-two-clear-button');
 
+// This code selects our HTML element for the loading spinner
+const loadingSpinner = document.getElementById('loading-spinner');
+
 // This code attaches event listeners to our buttons in the "Career 1" and "Career 2" sections
 careerOneClearButton.addEventListener('click', clearCareerOneValues);
 careerOneCalculateButton.addEventListener('click', function () {
