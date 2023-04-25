@@ -557,3 +557,26 @@ function fetchBasePay(payGrade, calendarYear, yearsOfService) {
         });
 }
 
+function fetchBASRate(payGrade, calendarYear) {
+    const jsonPath = `entitlements/${calendarYear}/${calendarYear}-BAS-Rates.json`;
+    loadingSpinner.style.display = "block";
+    return fetch(jsonPath)
+        .then(response => response.json())
+        .then(data => {
+            let BASRate;
+            if (payGrade.match(/^E.*/)) {
+                BASRate = data["enlisted"];
+            } else if (payGrade.match(/^O.*/)) {
+                BASRate = data["officer"];
+            } else {
+                BASRate = data["BASII"];
+            }
+            // console.log(`The BAS rate for ${payGrade} in ${calendarYear} is $${BASRate.toFixed(2)}.`);
+            loadingSpinner.style.display = "none";
+            return BASRate.toFixed(2);
+        })
+        .catch(error => {
+            loadingSpinner.style.display = "none";
+            console.error(error);
+        });
+}
