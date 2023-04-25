@@ -349,7 +349,7 @@ function lookupPayData(rank, yearsOfService, bahRate, sdapRate, careerColumn) {
     const annualBasePay = (monthlyBasePay * 12).toFixed(2);
 
     // Calculate BAS
-    const monthlyBAS = getBASRate(rank.value);
+    const monthlyBAS = await fetchBASRate(rank, calendarYear);
     const annualBAS = (monthlyBAS * 12).toFixed(2);
 
     // Calculate BAH
