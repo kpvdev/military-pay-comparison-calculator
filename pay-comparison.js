@@ -539,7 +539,6 @@ function showErrorModal(errorMessage) {
 // A "Start Over" button should appear at the bottom of the summarization.
 // It should hide the summary and reset ALL the fields.
 
-
 function fetchBasePay(payGrade, calendarYear, yearsOfService) {
     const jsonPath = `entitlements/${calendarYear}/${calendarYear}-Base-Pay.json`;
     loadingSpinner.style.display = "block";
