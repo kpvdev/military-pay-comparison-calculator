@@ -34,12 +34,12 @@ careerTwoCalculateButton.addEventListener('click', function () {
 });
 
 // This function is called when one of the two "Calculate" buttons is clicked
-function calculatePay(rank, yearsOfService, bahRate, sdapRate, careerColumn) {
-    if (rank.value === '' || yearsOfService.value === '' || bahRate.value === '' || sdapRate.value === '') {
+function calculatePay(calendarYear, rank, yearsOfService, bahRate, SDAPCode, careerColumn) {
+    if (calendarYear === '' || rank === '' || yearsOfService === '' || bahRate === '' || SDAPCode === '') {
         showErrorModal("Please provide ALL required information.");
         return;
     } else {
-        lookupPayData(rank, yearsOfService, bahRate, sdapRate, careerColumn);
+        lookupPayData(calendarYear, rank, yearsOfService, bahRate, SDAPCode, careerColumn);
     }
 }
 
