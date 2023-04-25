@@ -428,24 +428,6 @@ function getBAHRate(columnNumber) {
     }
 }
 
-function getBASRate(rank) {
-    const enlistedBASRate = 452.56;
-    const officerBASRate = 311.88;
-    const BASIIRate = 905.12;
-    if (rank.match(/^E.*/)) {
-        return enlistedBASRate;
-    } else if (rank.match(/^O.*/)) {
-        return officerBASRate;
-    } else {
-        return BASIIRate;
-    }
-}
-
-function convertToFloat(value) {
-    let floatValue = +(value);
-    return floatValue;
-}
-
 function clearCareerOneValues() {
     // Clears "Career 1" Required Information section
     document.getElementById("career-one-calendar-year").value = "";
