@@ -12,7 +12,17 @@
 </head>
 
 <body>
-    <div class="main-container">
+
+    <nav>
+        <div class="checkbox-wrapper">
+            <label class="switch">
+                <input id="theme-switcher" type="checkbox">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </nav>
+
+    <main>
         <div id="loading-spinner"></div>
         <h1 class="light-font" id="main-heading">Pay Comparison Calculator</h1>
         <div class="flex-container">
@@ -313,6 +323,8 @@
             <button id="close-error-modal">Close</button>
         </div>
     </div>
+
+    </main>
     <script src="pay-comparison.js"></script>
 </body>
 

@@ -1,3 +1,6 @@
+// This code selects our theme switcher element
+const themeSwitcher = document.getElementById('theme-switcher');
+
 // This code selects our HTML elements for the "Career 1" section
 const careerOneColumn = 1;
 const careerOneCalendarYear = document.getElementById("career-one-calendar-year");
@@ -22,6 +25,15 @@ const careerTwoClearButton = document.getElementById('career-two-clear-button');
 
 // This code selects our HTML element for the loading spinner
 const loadingSpinner = document.getElementById('loading-spinner');
+
+// This code attaches an event listener to our theme switcher
+themeSwitcher.addEventListener('change', function() {
+    if (themeSwitcher.checked) {
+        document.body.classList.add('dark-theme');
+    } else {
+        document.body.classList.remove('dark-theme');
+    }
+});
 
 // This code attaches event listeners to our buttons in the "Career 1" and "Career 2" sections
 careerOneClearButton.addEventListener('click', clearCareerOneValues);

@@ -1,11 +1,4 @@
-html {
-    box-sizing: border-box;
-}
-
-*,
-*:before,
-*:after {
-    box-sizing: inherit;
+@import url("theme-toggle.css");
 
     /*
     DARK THEME
