@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Lora&family=Play&family=Quattrocento:wght@700&display=swap"
         rel="stylesheet">
+    <script src="https://code.highcharts.com/highcharts.js"></script>
 </head>
 
 <body>
@@ -315,7 +316,10 @@
         <input class="calculate-disparity-button" type="button" id="calculate-disparity-button"
             value="Calculate Difference" required>
     </div>
-
+        <fieldset>
+        <legend>Disparity</legend>
+            <div id="chart-container"></div>
+        </fieldset>
     <div id="error-modal" class="modal">
         <div class="modal-content">
             <h2>Error</h2>
@@ -326,6 +330,7 @@
 
     </main>
     <script src="pay-comparison.js"></script>
+    <script src="pay-chart.js"></script>
 </body>
 
 </html>
