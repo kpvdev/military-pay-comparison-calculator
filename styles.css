@@ -1,25 +1,27 @@
 @import url("theme-toggle.css");
 
+:root {
     /*
     DARK THEME
     */
 
-    --background-color-dark-theme: rgb(40, 40, 40);
-    --secondary-color-dark-theme: rgb(65, 65, 65);
-    --text-color-dark-theme: rgb(231, 231, 231);
-    --accent-color-dark-theme: rgb(255, 144, 51);
-    --accent-color-dark-hover: none;
+    --background-color-dark: #333333;
+    --secondary-color-dark: #555555;
+    --text-color-dark: #ffffff;
+    --accent-color-dark: #3ecf8e;
+    --accent-color-dark-hover: #56e9ce;
+    --border-color-dark: #ffffff;
 
     /*
     LIGHT THEME
     */
 
-    --background-color-light-theme: rgb(255, 255, 255);
-    --secondary-color-light-theme: rgb(216, 230, 254);
-    --text-color-light-theme: rgb(9, 41, 59);
-    --accent-color-light-theme: rgb(37, 116, 169);
-    --accent-color-light-hover: rgb(28, 87, 127);
-    --color-pop-light-theme: rgb(33, 150, 243);
+    --background-color-light: #ffffff;
+    --secondary-color-light: #d2d2d2;
+    --text-color-light: #000000;
+    --accent-color-light: #3553fb;
+    --accent-color-light-hover: #2a43d0;
+    --border-color-light: #000000;
 
     /*
     LIGHT THEME REGULAR BUTTONS / DON'T TOUCH!
@@ -43,11 +45,11 @@
     SET THESE FOR THE PAGE COLORWAYS TO THE CORRESPONDING THEME
     **********************************************************/
 
-    --background-color: var(--background-color-light-theme);
-    --secondary-color: var(--secondary-color-light-theme);
-    --text-color: var(--text-color-light-theme);
-    --accent-color: var(--accent-color-light-theme);
-    --accent-color-hover: var(--accent-hover-light-hover);
+    --background-color: var(--background-color-light);
+    --secondary-color: var(--secondary-color-light);
+    --text-color: var(--text-color-light);
+    --accent-color: var(--accent-color-light);
+    --accent-color-hover: var(--accent-color-light-hover);
 
     /*
     REGULAR BUTTONS
@@ -68,10 +70,12 @@
     --text-color-cta-button: var(--text-color-cta-button-light-theme);
 
     /*
-    OTHER VARIABLES
+    STATIC VARIABLES
     */
 
     /*   --box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1); */
+    --margin: 4px;
+    --padding: 4px;
     --font-family: "Play", sans-serif;
     --small-font-size: 12px;
     --medium-font-size: 18px;
@@ -79,71 +83,111 @@
     --xlarge-font-size: 66px;
     --max-width: 1200px;
     --min-width: 850px;
-    --border-radius: 6px;
-    --main-box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-    --box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    --border-color: var(--secondary-color-light);
+    --border-radius: 4px;
+    /* --main-box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; */
+    /* --box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; */
 }
 
-body {
-    background-color: white;
-    color: var(--text-color);
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    margin: 0;
     font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
-/* .light-font {
-    color: white;
-  } */
+.dark-theme {
+    --background-color: var(--background-color-dark);
+    --text-color: var(--text-color-dark);
+    --accent-color: var(--accent-color-dark);
+    --accent-color-hover: var(--accent-color-dark-hover);
+    --border-color: var(--secondary-color-dark);
+}
 
-.light-background {
-    background-color: white;
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding: 24px;
+    /* box-shadow: var(--box-shadow); */
+}
+
+main {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding: 24px;
+}
+
+fieldset {
+    border: 1px solid;
+    border-color: var(--accent-color);
+    border-radius: var(--border-radius);
+    padding: 32px;
+    margin: 1rem 0px;
+    box-shadow: var(--box-shadow);
+}
+
+legend {
+    /* padding: 4px; */
+    font-size: 24px;
 }
 
 #main-heading {
+    color: var(--text-color);
+    background-color: var(--background-color);
     font-size: clamp(2.5rem, 6vw, 4.125rem);
-    margin-bottom: 25px;
-}
-
-hr {
-    height: 1px;
-    background-color: rgb(53, 83, 251);
-    border: none;
+    padding-left: 32px;
+    margin-bottom: 24px;
 }
 
 .content-container {
     background-color: var(--background-color);
+    color: var(--text-color);
     border: 1px solid;
+    border-color: var(--border-color);
     border-radius: var(--border-radius);
-    padding: 48px;
-    margin: 1rem 0px;
+    /* padding: 2rem; */
+    /* margin: 1rem 0px; */
     box-shadow: var(--box-shadow);
 }
 
 .flex-container {
     display: flex;
     flex-direction: row;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
 .job-container {
     display: flex;
     flex-direction: column;
-    border: 1px solid;
-    border-radius: var(--border-radius);
-    padding: 3rem;
+    /* border: 1px solid;
+    border-color: var(--border-color);
+    border-radius: var(--border-radius); */
+    padding: 2rem;
 }
 
 .job-container-left {
-    background-color: white;
-    margin-right: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin-right: var(--margin);
+    margin-top: var(--margin);
+    margin-bottom: var(--margin);
     box-shadow: var(--main-box-shadow);
 }
 
 .job-container-right {
-    background-color: white;
-    margin-left: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin-left: var(--margin);
+    margin-top: var(--margin);
+    margin-bottom: var(--margin);
     box-shadow: var(--main-box-shadow);
 }
 
@@ -152,13 +196,24 @@ input[type="text"],
 input[type="number"],
 select {
     font-family: var(--font-family);
+    display: inline-block;
     width: 100%;
-    min-height: 2.5rem;
-    margin: 8px auto;
-    padding: 10px 10px;
+    min-height: 1rem;
+    /* margin: 4px; */
+    padding: var(--padding);
     border: 1px solid;
+    border-color: var(--border-color);
     background-color: var(--background-color);
-    /*   border-radius: var(--border-radius); */
+    border-radius: var(--border-radius);
+}
+
+input[type="date"]:focus,
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+    outline: none; /* Remove default outline */
+    border-color: var(--accent-color); /* Set border color */
+    box-shadow: 0 0 10px var(--accent-color); /* Add a glow effect */
 }
 
 input::-webkit-input-placeholder,
@@ -180,9 +235,9 @@ input::-moz-placeholder {
     min-height: 2.5rem;
     margin: 8px auto;
     padding: 10px 10px;
-    border-bottom: 1px solid var(--text-color);
+    border-bottom: 1px solid var(--border-color);
     text-align: right;
-    color: rgb(53, 83, 251);
+    color: var(--accent-color);
 }
 
 option {
@@ -202,15 +257,19 @@ button:active {
 }
 
 label {
+    display: inline-block;
     font-size: 18px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    /* padding: 4px; */
 }
 
-.main-container {
+/* .main-container {
     max-width: var(--max-width);
     width: 90%;
     min-width: var(--min-width);
     margin: 0 auto;
-}
+} */
 
 .modal {
     display: none;
@@ -227,7 +286,8 @@ label {
     background-color: var(--background-color);
     margin: auto;
     padding: 20px;
-    border: 1px solid #888;
+    border: 1px solid;
+    border-color: var(--border-color);
     border-radius: var(--border-radius);
     width: 75%;
     text-align: center;
@@ -251,14 +311,16 @@ label {
     transition: 0.2s ease;
     margin: 20px 10px 20px 0px;
     background-color: var(--background-color-reg-button);
-    color: rgb(53, 83, 251);
+    color: var(--accent-color);
     border: 1px solid;
-    border-color: rgb(53, 83, 251);
+    border-color: var(--accent-color);
     box-shadow: var(--box-shadow);
 }
 
 .clear-button:hover {
-    background-color: var(--hover-color-reg-button);
+    border-color: none;
+    color: white;
+    background-color: var(--accent-color);
 }
 
 .calculate-button {
@@ -271,8 +333,8 @@ label {
     cursor: pointer;
     transition: 0.2s ease;
     margin: 20px 0px 20px 10px;
-    background-color: rgb(53, 83, 251);
-    color: var(--text-color-cta-button);
+    background-color: var(--accent-color);
+    color: white;
     box-shadow: var(--box-shadow);
 }
 
@@ -285,7 +347,7 @@ label {
     cursor: pointer;
     transition: 0.2s ease;
     margin: 10px auto;
-    background-color: rgb(53, 83, 251);
+    background-color: var(--accent-color);
     border: none;
     color: white;
     box-shadow: var(--main-box-shadow);
@@ -294,7 +356,7 @@ label {
 .calculate-button:hover,
 #close-error-modal:hover,
 .calculate-disparity-button:hover {
-    background-color: rgb(19, 31, 96);
+    background-color: var(--accent-color-hover);
 }
 
 #close-error-modal {
@@ -308,7 +370,7 @@ label {
     margin: 20px auto;
     cursor: pointer;
     transition: 0.2s ease;
-    background-color: rgb(53, 83, 251);
+    background-color: var(--accent-color);
     box-shadow: var(--box-shadow);
     border-radius: var(--border-radius);
 }
@@ -316,13 +378,13 @@ label {
 /* Scroll bar styles */
 
 ::-webkit-scrollbar {
-    width: 1rem;
+    width: .75rem;
 }
 
 ::-webkit-scrollbar-thumb {
     height: 2rem;
     width: 1rem;
-    background-color: rgb(53, 83, 251);
+    background-color: var(--accent-color);
     cursor: pointer;
     border-radius: 0.5rem;
 }
@@ -352,7 +414,7 @@ label {
     right: calc(50% - (50px / 2));
     width: 50px;
     height: calc(50px*0.866);
-    background: conic-gradient(from 120deg at 50% 64%, #0000, rgb(53, 83, 251) 1deg 120deg, #0000 121deg);
+    background: conic-gradient(from 120deg at 50% 64%, #0000, var(--accent-color) 1deg 120deg, #0000 121deg);
     transform-origin: 50% 50%;
     animation: sp7-0 1.5s infinite cubic-bezier(0.3, 1, 0, 1);
     transition: all 1.5s ease-in-out;
@@ -402,4 +464,14 @@ label {
     100% {
         transform: rotate(calc(var(--s, 1)*120deg)) translate(0)
     }
+}
+
+.highcharts-background {
+    fill: var(--background-color);
+}
+
+.highcharts-axis-labels text,
+.highcharts-axis.x-axis text,
+.highcharts-axis.y-axis text {
+    color: var(--accent-color);
 }
