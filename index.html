@@ -25,14 +25,16 @@
 
     <main>
         <div id="loading-spinner"></div>
-        <h1 class="light-font" id="main-heading">Pay Comparison Calculator</h1>
+
+        <h1 id="main-heading">Pay Comparison Calculator</h1>
+
         <div class="flex-container">
             <!-- Job 1 -->
             <div class="job-container job-container-left">
                 <h1>Career 1</h1>
-                <h2>Required Information</h2>
+                <fieldset>
+                    <legend>Required Information</legend>
                 <form>
-                    <div class="content-container">
                         <!-- Career 1 Calendar Year selection -->
                         <label for="career-one-calendar-year">CALENDAR YEAR</label>
                         <select id="career-one-calendar-year" name="career-one-calendar-year">
@@ -107,17 +109,16 @@
                             <option value="yes">Yes</option>
                             <option value="no">No</option>
                         </select>
-                    </div>
+                </fieldset>
                     <!-- Career 1 Buttons -->
                     <div class="button-container">
-                        <input class="clear-button" type="button" id="career-one-clear-button" value="Clear Form"
-                            required>
+                    <input class="clear-button" type="button" id="career-one-clear-button" value="Clear Form" required>
                         <input class="calculate-button" type="button" id="career-one-calculate-button" value="Calculate"
                             required>
                     </div>
                 </form>
-                <h2>Monthly Entitlements</h2>
-                <div class="content-container">
+                <fieldset>
+                <legend>Monthly Entitlements</legend>
                     <!-- Career 1 Monthly Base Pay -->
                     <label for="career-one-monthly-base-pay">MONTHLY BASE PAY</label>
                     <p class="result" id="career-one-monthly-base-pay"></p>
@@ -130,9 +131,9 @@
                     <!-- Career 1 Monthly SDAP Pay -->
                     <label for="career-one-monthly-sdap-pay">MONTHLY SDAP</label>
                     <p class="result" id="career-one-monthly-sdap-pay"></p>
-                </div>
-                <h2>Annual Entitlements</h2>
-                <div class="content-container">
+            </fieldset>
+            <fieldset>
+                <legend>Annual Entitlements</legend>
                     <!-- Career 1 Annual Base Pay -->
                     <label for="career-one-annual-base-pay">ANNUAL BASE PAY</label>
                     <p class="result" id="career-one-annual-base-pay"></p>
@@ -145,7 +146,7 @@
                     <!-- Career 1 Annual SDAP Pay -->
                     <label for="career-one-annual-sdap-pay">ANNUAL SDAP</label>
                     <p class="result" id="career-one-annual-sdap-pay"></p>
-                </div>
+            </fieldset>
                 <!--  <h2>Deductions</h2>
             <div class="content-container">
               <label for="monthly-federal-taxes">MONTHLY FEDERAL TAXES</label>
@@ -155,31 +156,33 @@
               <label for="sdap-pay">ANNUAL SDAP</label>
               <p class="result" id="sdap-pay"></p>
             </div> -->
-                <h2>Total Gross Income</h2>
-                <div class="content-container">
+            <fieldset>
+                <legend>Total Gross Income</legend>
                     <label for="career-one-annual-gross-income">ANNUAL GROSS INCOME</label>
                     <p class="result" id="career-one-annual-gross-income"></p>
                     <label for="career-one-monthly-gross-income">MONTHLY GROSS INCOME</label>
                     <p class="result" id="career-one-monthly-gross-income"></p>
                     <label for="career-one-hourly-gross-income">HOURLY GROSS INCOME</label>
                     <p class="result" id="career-one-hourly-gross-income"></p>
-                </div>
-                <h2>Total Net Income</h2>
-                <div class="content-container">
+            </fieldset>
+            <fieldset>    
+                <legend>Total Net Income</legend>
                     <label for="career-one-annual-net-income">ANNUAL NET INCOME</label>
                     <p class="result" id="career-one-annual-net-income"></p>
                     <label for="career-one-monthly-net-income">MONTHLY NET INCOME</label>
                     <p class="result" id="career-one-monthly-net-income"></p>
                     <label for="career-one-hourly-net-income">HOURLY NET INCOME</label>
                     <p class="result" id="career-one-hourly-net-income"></p>
-                </div>
+            </fieldset>
             </div>
+
             <!-- Job 2 -->
             <div class="job-container job-container-right">
                 <h1>Career 2</h1>
-                <h2>Required Information</h2>
+
+                <fieldset>
+                    <legend>Required Information</legend>
                 <form>
-                    <div class="content-container">
                         <!-- Career 2 Calendar Year selection -->
                         <label for="career-two-calendar-year">CALENDAR YEAR</label>
                         <select id="career-two-calendar-year" name="career-two-calendar-year">
@@ -253,17 +256,17 @@
                             <option value="yes">Yes</option>
                             <option value="no">No</option>
                         </select>
-                    </div>
+
+                </fieldset>
                     <!-- Career 2 Buttons -->
                     <div class="button-container">
-                        <input class="clear-button" type="button" id="career-two-clear-button" value="Clear Form"
-                            required>
+                    <input class="clear-button" type="button" id="career-two-clear-button" value="Clear Form" required>
                         <input class="calculate-button" type="button" id="career-two-calculate-button" value="Calculate"
                             required>
                     </div>
                 </form>
-                <h2>Monthly Entitlements</h2>
-                <div class="content-container">
+                <fieldset>
+                <legend>Monthly Entitlements</legend>
                     <label for="career-two-monthly-base-pay">MONTHLY BASE PAY</label>
                     <p class="result" id="career-two-monthly-base-pay"></p>
                     <label for="career-two-monthly-bas-pay">MONTHLY BAS</label>
@@ -272,9 +275,9 @@
                     <p class="result" id="career-two-monthly-bah-pay"></p>
                     <label for="career-two-monthly-sdap-pay">MONTHLY SDAP</label>
                     <p class="result" id="career-two-monthly-sdap-pay"></p>
-                </div>
-                <h2>Annual Entitlements</h2>
-                <div class="content-container">
+                </fieldset>
+                <fieldset>
+                <legend>Annual Entitlements</legend>
                     <label for="career-two-annual-base-pay">ANNUAL BASE PAY</label>
                     <p class="result" id="career-two-annual-base-pay"></p>
                     <label for="career-two-annual-bas-pay">ANNUAL BAS</label>
@@ -283,7 +286,7 @@
                     <p class="result" id="career-two-annual-bah-pay"></p>
                     <label for="career-two-annual-sdap-pay">ANNUAL SDAP</label>
                     <p class="result" id="career-two-annual-sdap-pay"></p>
-                </div>
+                </fieldset>
                 <!--       <h2>Deductions</h2>
             <div class="content-container">
               <label for="monthly-federal-taxes">MONTHLY FEDERAL TAXES</label>
@@ -293,24 +296,24 @@
           <label for="sdap-pay">ANNUAL SDAP</label>
           <p class="result" id="sdap-pay"></p>
             </div> -->
-                <h2>Total Gross Income</h2>
-                <div class="content-container">
+                <fieldset>
+                <legend>Total Gross Income</legend>
                     <label for="career-two-annual-gross-income">ANNUAL GROSS INCOME</label>
                     <p class="result" id="career-two-annual-gross-income"></p>
                     <label for="career-two-monthly-gross-income">MONTHLY GROSS INCOME</label>
                     <p class="result" id="career-two-monthly-gross-income"></p>
                     <label for="career-two-hourly-gross-income">HOURLY GROSS INCOME</label>
                     <p class="result" id="career-two-hourly-gross-income"></p>
-                </div>
-                <h2>Total Net Income</h2>
-                <div class="content-container">
+                </fieldset>
+                <fieldset>
+                <legend>Total Net Income</legend>
                     <label for="career-two-annual-net-income">ANNUAL NET INCOME</label>
                     <p class="result" id="career-two-annual-net-income"></p>
                     <label for="career-two-monthly-net-income">MONTHLY NET INCOME</label>
                     <p class="result" id="career-two-monthly-net-income"></p>
                     <label for="career-two-hourly-net-income">HOURLY NET INCOME</label>
                     <p class="result" id="career-two-hourly-net-income"></p>
-                </div>
+                </fieldset>
             </div>
         </div>
         <input class="calculate-disparity-button" type="button" id="calculate-disparity-button"
