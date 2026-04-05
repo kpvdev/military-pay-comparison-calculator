@@ -20,10 +20,9 @@ function DiffBadge({ diff }: { diff: number }) {
   const color = career1Higher
     ? 'text-primary-600 dark:text-primary-400'
     : 'text-emerald-600 dark:text-emerald-400';
-  const label = career1Higher ? 'C1' : 'C2';
   return (
     <span className={`text-[10px] tabular-nums font-semibold ${color}`}>
-      {label} +{formatUSD(Math.abs(diff))}
+      +{formatUSD(Math.abs(diff))}
     </span>
   );
 }
