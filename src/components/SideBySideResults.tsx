@@ -124,6 +124,7 @@ export function SideBySideResults({ result1, result2, career1, career2 }: SideBy
           <CompareRow label="BAS" val1={result1.bas} val2={result2.bas} />
           <CompareRow label="BAH" val1={result1.bah} val2={result2.bah} />
           <CompareRow label="SDAP" val1={result1.sdap} val2={result2.sdap} />
+          <CompareRow label="CAIP" val1={result1.caip} val2={result2.caip} />
         </div>
 
         {/* Gross Income */}
@@ -143,7 +144,7 @@ export function SideBySideResults({ result1, result2, career1, career2 }: SideBy
         </div>
 
         <p className="mt-3 mb-4 text-xs text-surface-700 dark:text-surface-200 italic text-center">
-          * Net income estimated at 15% tax rate. Actual taxes vary.
+          * 15% tax on base pay, SDAP, and CAIP only. BAH and BAS are tax-exempt.
         </p>
       </div>
 

@@ -24,6 +24,7 @@ export function ComparisonChart({ result1, result2, theme }: ComparisonChartProp
     { name: 'BAS', career1: result1.bas, career2: result2.bas },
     { name: 'BAH', career1: result1.bah, career2: result2.bah },
     { name: 'SDAP', career1: result1.sdap, career2: result2.sdap },
+    { name: 'CAIP', career1: result1.caip, career2: result2.caip },
     { name: 'Monthly Gross', career1: result1.monthlyGross, career2: result2.monthlyGross },
   ];
 

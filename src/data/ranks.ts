@@ -50,4 +50,11 @@ export const SDAP_LEVELS = [
   { value: 'SD-6', label: 'SD-6 — $450/mo' },
 ];
 
+export const CAIP_LEVELS = [
+  { value: 'CAIP-0', label: 'None' },
+  { value: 'CAIP-B', label: 'Basic — $1,000/mo' },
+  { value: 'CAIP-S', label: 'Senior — $1,250/mo' },
+  { value: 'CAIP-M', label: 'Master — $1,500/mo' },
+];
+
 export const CALENDAR_YEARS = ['2024', '2023'];

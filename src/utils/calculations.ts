@@ -1,12 +1,12 @@
 import type { CareerInput, PayBreakdown } from '../types/pay';
-import { basePayByYear, basRates, sdapRates } from '../data/pay';
+import { basePayByYear, basRates, sdapRates, caipRates } from '../data/pay';
 import { RANKS } from '../data/ranks';
 
 const HOURS_PER_MONTH = 160; // 40 hrs/week * 4 weeks
 const TAX_RATE = 0.15;
 
 export function calculatePay(input: CareerInput): PayBreakdown | null {
-  const { rank, yearsOfService, calendarYear, bahRate, sdapLevel } = input;
+  const { rank, yearsOfService, calendarYear, bahRate, sdapLevel, caipLevel } = input;
 
   const payTable = basePayByYear[calendarYear];
   if (!payTable) return null;
@@ -22,12 +22,16 @@ export function calculatePay(input: CareerInput): PayBreakdown | null {
   const bas = rankInfo?.category === 'officer' ? yearRates.officer : yearRates.enlisted;
   const bah = bahRate;
   const sdap = sdapRates[sdapLevel] ?? 0;
+  const caip = caipRates[caipLevel] ?? 0;
 
-  const monthlyGross = basePay + bas + bah + sdap;
+  const monthlyGross = basePay + bas + bah + sdap + caip;
   const annualGross = monthlyGross * 12;
   const hourlyGross = monthlyGross / HOURS_PER_MONTH;
 
-  const monthlyNet = monthlyGross * (1 - TAX_RATE);
+  // Only base pay, SDAP, and CAIP are taxable. BAH and BAS are tax-exempt.
+  const taxableIncome = basePay + sdap + caip;
+  const monthlyTax = taxableIncome * TAX_RATE;
+  const monthlyNet = monthlyGross - monthlyTax;
   const annualNet = monthlyNet * 12;
   const hourlyNet = monthlyNet / HOURS_PER_MONTH;
 
@@ -36,6 +40,7 @@ export function calculatePay(input: CareerInput): PayBreakdown | null {
     bas,
     bah,
     sdap,
+    caip,
     monthlyGross,
     annualGross,
     hourlyGross,

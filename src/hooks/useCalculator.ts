@@ -11,6 +11,7 @@ const defaultCareer: CareerInput = {
   bahLocationName: '',
   withDependents: false,
   sdapLevel: 'SD-0',
+  caipLevel: 'CAIP-0',
 };
 
 export function useCalculator() {

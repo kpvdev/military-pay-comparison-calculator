@@ -7,6 +7,7 @@ export interface CareerInput {
   bahLocationName: string;
   withDependents: boolean;
   sdapLevel: string;
+  caipLevel: string;
 }
 
 export interface PayBreakdown {
@@ -14,6 +15,7 @@ export interface PayBreakdown {
   bas: number;
   bah: number;
   sdap: number;
+  caip: number;
   monthlyGross: number;
   annualGross: number;
   hourlyGross: number;
@@ -31,3 +33,4 @@ export interface RankInfo {
 export type BasePay = Record<string, Record<string, number>>;
 export type BASRates = { enlisted: number; officer: number; BASII: number };
 export type SDAPRates = Record<string, number>;
+export type CAIPRates = Record<string, number>;

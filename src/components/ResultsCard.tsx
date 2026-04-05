@@ -64,6 +64,7 @@ export function ResultsCard({ result, career, label, accent }: ResultsCardProps)
             <StatRow label="BAS" value={formatUSD(result.bas)} />
             <StatRow label="BAH" value={formatUSD(result.bah)} />
             <StatRow label="SDAP" value={formatUSD(result.sdap)} />
+            <StatRow label="CAIP" value={formatUSD(result.caip)} />
           </div>
         </div>
 
@@ -96,7 +97,7 @@ export function ResultsCard({ result, career, label, accent }: ResultsCardProps)
             <StatRow label="Hourly" value={formatUSD(result.hourlyNet)} />
           </div>
           <p className="mt-2 text-xs text-surface-700 dark:text-surface-200 italic">
-            * Estimated at 15% tax rate. Actual taxes vary.
+            * 15% tax on base pay, SDAP, and CAIP only. BAH and BAS are tax-exempt.
           </p>
         </div>
       </div>

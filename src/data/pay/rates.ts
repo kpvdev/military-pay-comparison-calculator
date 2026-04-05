@@ -1,4 +1,4 @@
-import type { BASRates, SDAPRates } from '../../types/pay';
+import type { BASRates, SDAPRates, CAIPRates } from '../../types/pay';
 
 export const basRates: Record<string, BASRates> = {
   '2023': { enlisted: 452.56, officer: 311.88, BASII: 905.12 },
@@ -13,4 +13,11 @@ export const sdapRates: SDAPRates = {
   'SD-4': 300.00,
   'SD-5': 375.00,
   'SD-6': 450.00,
+};
+
+export const caipRates: CAIPRates = {
+  'CAIP-0': 0,
+  'CAIP-B': 1000.00,
+  'CAIP-S': 1250.00,
+  'CAIP-M': 1500.00,
 };

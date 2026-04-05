@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Trash2, Calculator, MapPin, Search, Check, Copy } from 'lucide-react';
 import type { CareerInput } from '../types/pay';
-import { RANKS, YEARS_OF_SERVICE, SDAP_LEVELS, CALENDAR_YEARS } from '../data/ranks';
+import { RANKS, YEARS_OF_SERVICE, SDAP_LEVELS, CAIP_LEVELS, CALENDAR_YEARS } from '../data/ranks';
 import { lookupBAHByZip, searchLocations, bahLocations2024 } from '../data/bah';
 
 interface CareerFormProps {
@@ -313,6 +313,22 @@ export function CareerForm({ label, career, onChange, onCalculate, onClear, onCo
           >
             {SDAP_LEVELS.map((s) => (
               <option key={s.value} value={s.value}>{s.label}</option>
+            ))}
+          </select>
+        </div>
+
+        {/* CAIP */}
+        <div>
+          <label className="block text-xs font-semibold uppercase tracking-wider text-surface-700 dark:text-surface-200 mb-1.5">
+            CAIP Level
+          </label>
+          <select
+            value={career.caipLevel}
+            onChange={(e) => onChange({ caipLevel: e.target.value })}
+            className={selectClasses}
+          >
+            {CAIP_LEVELS.map((c) => (
+              <option key={c.value} value={c.value}>{c.label}</option>
             ))}
           </select>
         </div>
