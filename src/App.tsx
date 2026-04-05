@@ -5,7 +5,6 @@ import { Hero } from './components/Hero';
 import { CareerForm } from './components/CareerForm';
 import { ResultsCard } from './components/ResultsCard';
 import { SideBySideResults } from './components/SideBySideResults';
-import { ComparisonChart } from './components/ComparisonChart';
 import { ErrorToast } from './components/ErrorToast';
 import { useTheme } from './hooks/useTheme';
 import { useCalculator } from './hooks/useCalculator';
@@ -80,9 +79,8 @@ export default function App() {
 
         {/* Results */}
         {result1 && result2 ? (
-          <div ref={comparisonRef} className="mt-12 space-y-8">
+          <div ref={comparisonRef} className="mt-12">
             <SideBySideResults result1={result1} result2={result2} career1={career1} career2={career2} />
-            <ComparisonChart result1={result1} result2={result2} theme={theme} />
           </div>
         ) : (result1 || result2) ? (
           <div className="mt-12 max-w-xl mx-auto">
