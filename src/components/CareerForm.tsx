@@ -284,13 +284,13 @@ export function CareerForm({ label, career, onChange, onCalculate, onClear, onCo
 
               {/* Location match indicator */}
               {career.bahLocationName && (
-                <div className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium ${accentClasses.badge}`}>
+                <div className={`flex items-center gap-2 px-3 py-2 mt-5 rounded-lg text-xs font-medium ${accentClasses.badge}`}>
                   <MapPin className="h-3.5 w-3.5" />
                   {career.bahLocationName} — {career.bahRate > 0 ? `$${career.bahRate.toLocaleString()}/mo` : 'Select rank to see rate'}
                 </div>
               )}
               {career.bahZip.length === 5 && !career.bahLocationName && (
-                <div className="flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300">
+                <div className="flex items-center gap-2 px-3 py-2 mt-5 rounded-lg text-xs font-medium bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300">
                   ZIP not found in database. Try searching by name or use manual entry.
                 </div>
               )}
