@@ -34,6 +34,13 @@ body {
   @apply bg-surface-50 text-surface-900 dark:bg-surface-950 dark:text-surface-100 font-sans antialiased transition-colors duration-300;
 }
 
+/* Prevent iOS Safari auto-zoom on input focus */
+input,
+select,
+textarea {
+  font-size: 16px;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
