@@ -1,9 +1,11 @@
-import { DollarSign, TrendingUp, Clock } from 'lucide-react';
-import type { PayBreakdown } from '../types/pay';
+import { DollarSign, TrendingUp, Clock, User, MapPin } from 'lucide-react';
+import type { PayBreakdown, CareerInput } from '../types/pay';
 import { formatUSD } from '../utils/calculations';
+import { RANKS, YEARS_OF_SERVICE } from '../data/ranks';
 
 interface ResultsCardProps {
   result: PayBreakdown;
+  career: CareerInput;
   label: string;
   accent: 'blue' | 'emerald';
 }
@@ -17,16 +19,35 @@ function StatRow({ label, value }: { label: string; value: string }) {
   );
 }
 
-export function ResultsCard({ result, label, accent }: ResultsCardProps) {
+export function ResultsCard({ result, career, label, accent }: ResultsCardProps) {
   const accentBorder = accent === 'blue' ? 'border-l-primary-500' : 'border-l-emerald-500';
   const accentIcon = accent === 'blue'
     ? 'bg-primary-100 text-primary-600 dark:bg-primary-900/40 dark:text-primary-400'
     : 'bg-emerald-100 text-emerald-600 dark:bg-emerald-900/40 dark:text-emerald-400';
 
+  const rankLabel = RANKS.find((r) => r.value === career.rank)?.label ?? career.rank;
+  const yosLabel = YEARS_OF_SERVICE.find((y) => y.value === career.yearsOfService)?.label ?? `${career.yearsOfService} years`;
+
   return (
     <div className={`rounded-2xl border border-surface-200 dark:border-surface-700 bg-white dark:bg-surface-900 shadow-sm border-l-4 ${accentBorder} overflow-hidden animate-in`}>
       <div className="px-6 py-4 border-b border-surface-200 dark:border-surface-700">
         <h3 className="text-sm font-semibold text-surface-900 dark:text-white">{label} — Results</h3>
+        <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1">
+          <span className="inline-flex items-center gap-1.5 text-xs text-surface-700 dark:text-surface-200">
+            <User className="h-3 w-3" />
+            {rankLabel}
+          </span>
+          <span className="inline-flex items-center gap-1.5 text-xs text-surface-700 dark:text-surface-200">
+            <Clock className="h-3 w-3" />
+            {yosLabel}
+          </span>
+          {career.bahLocationName && (
+            <span className="inline-flex items-center gap-1.5 text-xs text-surface-700 dark:text-surface-200">
+              <MapPin className="h-3 w-3" />
+              {career.bahLocationName}
+            </span>
+          )}
+        </div>
       </div>
 
       <div className="p-6 space-y-6">

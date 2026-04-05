@@ -76,8 +76,8 @@ export default function App() {
         {/* Results */}
         {(result1 || result2) && (
           <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-            {result1 && <ResultsCard result={result1} label="Career 1" accent="blue" />}
-            {result2 && <ResultsCard result={result2} label="Career 2" accent="emerald" />}
+            {result1 && <ResultsCard result={result1} career={career1} label="Career 1" accent="blue" />}
+            {result2 && <ResultsCard result={result2} career={career2} label="Career 2" accent="emerald" />}
           </div>
         )}
 
