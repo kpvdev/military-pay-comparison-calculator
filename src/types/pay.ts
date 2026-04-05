@@ -3,6 +3,9 @@ export interface CareerInput {
   yearsOfService: string;
   calendarYear: string;
   bahRate: number;
+  bahZip: string;
+  bahLocationName: string;
+  withDependents: boolean;
   sdapLevel: string;
 }
 

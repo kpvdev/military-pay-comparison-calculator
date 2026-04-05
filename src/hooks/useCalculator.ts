@@ -7,6 +7,9 @@ const defaultCareer: CareerInput = {
   yearsOfService: '',
   calendarYear: '2024',
   bahRate: 0,
+  bahZip: '',
+  bahLocationName: '',
+  withDependents: false,
   sdapLevel: 'SD-0',
 };
 
