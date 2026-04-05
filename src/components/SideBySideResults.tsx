@@ -16,13 +16,14 @@ function DiffBadge({ diff }: { diff: number }) {
       <span className="text-[10px] tabular-nums text-surface-700 dark:text-surface-200">—</span>
     );
   }
-  const isPositive = diff > 0;
-  const color = isPositive
+  const career1Higher = diff > 0;
+  const color = career1Higher
     ? 'text-primary-600 dark:text-primary-400'
     : 'text-emerald-600 dark:text-emerald-400';
+  const label = career1Higher ? 'C1' : 'C2';
   return (
     <span className={`text-[10px] tabular-nums font-semibold ${color}`}>
-      {isPositive ? '+' : ''}{formatUSD(diff)}
+      {label} +{formatUSD(Math.abs(diff))}
     </span>
   );
 }
