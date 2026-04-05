@@ -4,6 +4,7 @@ import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { CareerForm } from './components/CareerForm';
 import { ResultsCard } from './components/ResultsCard';
+import { SideBySideResults } from './components/SideBySideResults';
 import { ComparisonChart } from './components/ComparisonChart';
 import { ErrorToast } from './components/ErrorToast';
 import { useTheme } from './hooks/useTheme';
@@ -74,19 +75,17 @@ export default function App() {
         </div>
 
         {/* Results */}
-        {(result1 || result2) && (
-          <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+        {result1 && result2 ? (
+          <div ref={comparisonRef} className="mt-12 space-y-8">
+            <SideBySideResults result1={result1} result2={result2} career1={career1} career2={career2} />
+            <ComparisonChart result1={result1} result2={result2} theme={theme} />
+          </div>
+        ) : (result1 || result2) ? (
+          <div className="mt-12 max-w-xl mx-auto">
             {result1 && <ResultsCard result={result1} career={career1} label="Career 1" accent="blue" />}
             {result2 && <ResultsCard result={result2} career={career2} label="Career 2" accent="emerald" />}
           </div>
-        )}
-
-        {/* Comparison Chart */}
-        {result1 && result2 && (
-          <div ref={comparisonRef} className="mt-12">
-            <ComparisonChart result1={result1} result2={result2} theme={theme} />
-          </div>
-        )}
+        ) : null}
       </main>
 
       {/* Footer */}
