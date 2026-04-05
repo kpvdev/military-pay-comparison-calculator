@@ -1,6 +1,7 @@
 import type { RankInfo } from '../types/pay';
 
 export const RANKS: RankInfo[] = [
+  // Enlisted
   { value: 'E1', label: 'E-1', category: 'enlisted' },
   { value: 'E2', label: 'E-2', category: 'enlisted' },
   { value: 'E3', label: 'E-3', category: 'enlisted' },
@@ -10,9 +11,27 @@ export const RANKS: RankInfo[] = [
   { value: 'E7', label: 'E-7', category: 'enlisted' },
   { value: 'E8', label: 'E-8', category: 'enlisted' },
   { value: 'E9', label: 'E-9', category: 'enlisted' },
-  { value: 'O1E', label: 'O-1E', category: 'officer' },
-  { value: 'O2E', label: 'O-2E', category: 'officer' },
-  { value: 'O3E', label: 'O-3E', category: 'officer' },
+  // Warrant Officers
+  { value: 'W1', label: 'W-1', category: 'warrant' },
+  { value: 'W2', label: 'W-2', category: 'warrant' },
+  { value: 'W3', label: 'W-3', category: 'warrant' },
+  { value: 'W4', label: 'W-4', category: 'warrant' },
+  { value: 'W5', label: 'W-5', category: 'warrant' },
+  // Commissioned Officers
+  { value: 'O1', label: 'O-1', category: 'officer' },
+  { value: 'O2', label: 'O-2', category: 'officer' },
+  { value: 'O3', label: 'O-3', category: 'officer' },
+  { value: 'O4', label: 'O-4', category: 'officer' },
+  { value: 'O5', label: 'O-5', category: 'officer' },
+  { value: 'O6', label: 'O-6', category: 'officer' },
+  { value: 'O7', label: 'O-7', category: 'officer' },
+  { value: 'O8', label: 'O-8', category: 'officer' },
+  { value: 'O9', label: 'O-9', category: 'officer' },
+  { value: 'O10', label: 'O-10', category: 'officer' },
+  // Commissioned Officers (Prior Enlisted)
+  { value: 'O1E', label: 'O-1E', category: 'officer_prior' },
+  { value: 'O2E', label: 'O-2E', category: 'officer_prior' },
+  { value: 'O3E', label: 'O-3E', category: 'officer_prior' },
 ];
 
 export const YEARS_OF_SERVICE = [
@@ -57,4 +76,4 @@ export const CAIP_LEVELS = [
   { value: 'CAIP-M', label: 'Master — $1,500/mo' },
 ];
 
-export const CALENDAR_YEARS = ['2024', '2023'];
+export const CALENDAR_YEARS = ['2026', '2024', '2023'];

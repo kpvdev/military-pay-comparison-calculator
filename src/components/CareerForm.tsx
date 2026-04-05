@@ -123,14 +123,24 @@ export function CareerForm({ label, career, onChange, onCalculate, onClear, onCo
             onChange={(e) => handleRankChange(e.target.value)}
             className={selectClasses}
           >
-            <option value="">Select rank...</option>
+            <option value="">Select pay grade...</option>
             <optgroup label="Enlisted">
               {RANKS.filter((r) => r.category === 'enlisted').map((r) => (
                 <option key={r.value} value={r.value}>{r.label}</option>
               ))}
             </optgroup>
-            <optgroup label="Officer (Prior Enlisted)">
+            <optgroup label="Warrant Officer">
+              {RANKS.filter((r) => r.category === 'warrant').map((r) => (
+                <option key={r.value} value={r.value}>{r.label}</option>
+              ))}
+            </optgroup>
+            <optgroup label="Commissioned Officer">
               {RANKS.filter((r) => r.category === 'officer').map((r) => (
+                <option key={r.value} value={r.value}>{r.label}</option>
+              ))}
+            </optgroup>
+            <optgroup label="Commissioned Officer (Prior Enlisted)">
+              {RANKS.filter((r) => r.category === 'officer_prior').map((r) => (
                 <option key={r.value} value={r.value}>{r.label}</option>
               ))}
             </optgroup>

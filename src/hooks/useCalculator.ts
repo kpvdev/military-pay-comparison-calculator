@@ -5,7 +5,7 @@ import { calculatePay } from '../utils/calculations';
 const defaultCareer: CareerInput = {
   rank: '',
   yearsOfService: '',
-  calendarYear: '2024',
+  calendarYear: '2026',
   bahRate: 0,
   bahZip: '',
   bahLocationName: '',

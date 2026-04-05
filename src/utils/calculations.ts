@@ -18,8 +18,9 @@ export function calculatePay(input: CareerInput): PayBreakdown | null {
   if (basePay === 0 && rank !== 'E1') return null;
 
   const rankInfo = RANKS.find((r) => r.value === rank);
-  const yearRates = basRates[calendarYear] ?? basRates['2024'];
-  const bas = rankInfo?.category === 'officer' ? yearRates.officer : yearRates.enlisted;
+  const yearRates = basRates[calendarYear] ?? basRates['2026'];
+  const isOfficer = rankInfo?.category === 'officer' || rankInfo?.category === 'officer_prior' || rankInfo?.category === 'warrant';
+  const bas = isOfficer ? yearRates.officer : yearRates.enlisted;
   const bah = bahRate;
   const sdap = sdapRates[sdapLevel] ?? 0;
   const caip = caipRates[caipLevel] ?? 0;

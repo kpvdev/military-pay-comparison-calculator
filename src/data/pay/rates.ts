@@ -3,6 +3,7 @@ import type { BASRates, SDAPRates, CAIPRates } from '../../types/pay';
 export const basRates: Record<string, BASRates> = {
   '2023': { enlisted: 452.56, officer: 311.88, BASII: 905.12 },
   '2024': { enlisted: 460.25, officer: 317.17, BASII: 920.50 },
+  '2026': { enlisted: 475.18, officer: 327.45, BASII: 950.36 },
 };
 
 export const sdapRates: SDAPRates = {

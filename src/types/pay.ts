@@ -27,7 +27,7 @@ export interface PayBreakdown {
 export interface RankInfo {
   value: string;
   label: string;
-  category: 'enlisted' | 'officer';
+  category: 'enlisted' | 'warrant' | 'officer' | 'officer_prior';
 }
 
 export type BasePay = Record<string, Record<string, number>>;
