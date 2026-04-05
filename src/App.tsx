@@ -44,6 +44,8 @@ export default function App() {
             onChange={(u) => setCareer1((p) => ({ ...p, ...u }))}
             onCalculate={calculate1}
             onClear={clear1}
+            onCopyToOther={() => setCareer2({ ...career1 })}
+            otherLabel="Career 2"
             accent="blue"
           />
           <CareerForm
@@ -52,6 +54,8 @@ export default function App() {
             onChange={(u) => setCareer2((p) => ({ ...p, ...u }))}
             onCalculate={calculate2}
             onClear={clear2}
+            onCopyToOther={() => setCareer1({ ...career2 })}
+            otherLabel="Career 1"
             accent="emerald"
           />
         </div>

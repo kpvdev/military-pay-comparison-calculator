@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Trash2, Calculator, MapPin, Search, Check } from 'lucide-react';
+import { Trash2, Calculator, MapPin, Search, Check, Copy } from 'lucide-react';
 import type { CareerInput } from '../types/pay';
 import { RANKS, YEARS_OF_SERVICE, SDAP_LEVELS, CALENDAR_YEARS } from '../data/ranks';
 import { lookupBAHByZip, searchLocations, bahLocations2024 } from '../data/bah';
@@ -10,10 +10,12 @@ interface CareerFormProps {
   onChange: (updates: Partial<CareerInput>) => void;
   onCalculate: () => void;
   onClear: () => void;
+  onCopyToOther: () => void;
+  otherLabel: string;
   accent: 'blue' | 'emerald';
 }
 
-export function CareerForm({ label, career, onChange, onCalculate, onClear, accent }: CareerFormProps) {
+export function CareerForm({ label, career, onChange, onCalculate, onClear, onCopyToOther, otherLabel, accent }: CareerFormProps) {
   const [bahMode, setBahMode] = useState<'zip' | 'manual'>('zip');
   const [locationSearch, setLocationSearch] = useState('');
   const [showLocationDropdown, setShowLocationDropdown] = useState(false);
@@ -317,20 +319,29 @@ export function CareerForm({ label, career, onChange, onCalculate, onClear, acce
       </div>
 
       {/* Actions */}
-      <div className="px-6 py-4 border-t border-surface-200 dark:border-surface-700 bg-surface-50 dark:bg-surface-800/50 flex gap-3">
+      <div className="px-6 py-4 border-t border-surface-200 dark:border-surface-700 bg-surface-50 dark:bg-surface-800/50 flex flex-col gap-3">
+        <div className="flex gap-3">
+          <button
+            onClick={onClear}
+            className="flex items-center gap-2 rounded-xl border border-surface-200 dark:border-surface-700 bg-white dark:bg-surface-800 px-4 py-2.5 text-sm font-medium text-surface-700 dark:text-surface-200 hover:bg-surface-100 dark:hover:bg-surface-700 transition-all focus:outline-none focus:ring-2 focus:ring-surface-200"
+          >
+            <Trash2 className="h-4 w-4" />
+            Clear
+          </button>
+          <button
+            onClick={onCalculate}
+            className={`flex-1 flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold text-white shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-offset-2 ${accentClasses.btn}`}
+          >
+            <Calculator className="h-4 w-4" />
+            Calculate
+          </button>
+        </div>
         <button
-          onClick={onClear}
-          className="flex items-center gap-2 rounded-xl border border-surface-200 dark:border-surface-700 bg-white dark:bg-surface-800 px-4 py-2.5 text-sm font-medium text-surface-700 dark:text-surface-200 hover:bg-surface-100 dark:hover:bg-surface-700 transition-all focus:outline-none focus:ring-2 focus:ring-surface-200"
+          onClick={onCopyToOther}
+          className="flex items-center justify-center gap-2 rounded-xl border border-dashed border-surface-200 dark:border-surface-700 bg-white dark:bg-surface-800 px-4 py-2 text-xs font-medium text-surface-700 dark:text-surface-200 hover:bg-surface-100 dark:hover:bg-surface-700 transition-all focus:outline-none focus:ring-2 focus:ring-surface-200"
         >
-          <Trash2 className="h-4 w-4" />
-          Clear
-        </button>
-        <button
-          onClick={onCalculate}
-          className={`flex-1 flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold text-white shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-offset-2 ${accentClasses.btn}`}
-        >
-          <Calculator className="h-4 w-4" />
-          Calculate
+          <Copy className="h-3.5 w-3.5" />
+          Copy to {otherLabel}
         </button>
       </div>
     </div>

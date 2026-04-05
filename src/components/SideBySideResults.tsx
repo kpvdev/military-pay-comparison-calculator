@@ -1,4 +1,4 @@
-import { DollarSign, TrendingUp, User, MapPin, ArrowUp, ArrowDown, Minus } from 'lucide-react';
+import { DollarSign, TrendingUp, User, MapPin } from 'lucide-react';
 import type { PayBreakdown, CareerInput } from '../types/pay';
 import { formatUSD } from '../utils/calculations';
 import { RANKS, YEARS_OF_SERVICE } from '../data/ranks';
@@ -10,33 +10,40 @@ interface SideBySideResultsProps {
   career2: CareerInput;
 }
 
-function DiffIndicator({ val1, val2 }: { val1: number; val2: number }) {
-  const diff = val1 - val2;
+function DiffBadge({ diff }: { diff: number }) {
   if (Math.abs(diff) < 0.01) {
-    return <Minus className="h-3 w-3 text-surface-700 dark:text-surface-200" />;
+    return (
+      <span className="text-[10px] tabular-nums text-surface-700 dark:text-surface-200">—</span>
+    );
   }
-  if (diff > 0) {
-    return <ArrowUp className="h-3 w-3 text-primary-500" />;
-  }
-  return <ArrowDown className="h-3 w-3 text-emerald-500" />;
+  const isPositive = diff > 0;
+  const color = isPositive
+    ? 'text-primary-600 dark:text-primary-400'
+    : 'text-emerald-600 dark:text-emerald-400';
+  return (
+    <span className={`text-[10px] tabular-nums font-semibold ${color}`}>
+      {isPositive ? '+' : ''}{formatUSD(diff)}
+    </span>
+  );
 }
 
 function CompareRow({ label, val1, val2, bold }: { label: string; val1: number; val2: number; bold?: boolean }) {
   const higher = val1 > val2 ? 1 : val2 > val1 ? 2 : 0;
-  const textClass = bold ? 'font-bold text-base' : 'text-sm font-semibold';
+  const diff = val1 - val2;
+  const valClass = bold ? 'font-bold text-sm' : 'text-sm font-semibold';
   return (
-    <div className={`grid grid-cols-[1fr_auto_1fr] items-center gap-2 py-2.5 ${bold ? 'border-t-2 border-surface-200 dark:border-surface-700 pt-3' : ''}`}>
-      <div className="text-right">
-        <span className={`tabular-nums ${textClass} ${higher === 1 ? 'text-primary-600 dark:text-primary-400' : 'text-surface-900 dark:text-white'}`}>
+    <div className={`grid grid-cols-[1fr_minmax(70px,auto)_1fr] items-center py-2.5 ${bold ? 'border-t-2 border-surface-200 dark:border-surface-700 pt-3' : ''}`}>
+      <div className="text-right pr-3">
+        <span className={`tabular-nums ${valClass} ${higher === 1 ? 'text-primary-600 dark:text-primary-400' : 'text-surface-900 dark:text-white'}`}>
           {formatUSD(val1)}
         </span>
       </div>
-      <div className="flex flex-col items-center gap-0.5 min-w-[80px]">
-        <span className="text-xs text-surface-700 dark:text-surface-200 text-center leading-tight">{label}</span>
-        <DiffIndicator val1={val1} val2={val2} />
+      <div className="flex flex-col items-center gap-0.5">
+        <span className="text-[10px] font-semibold uppercase tracking-wider text-surface-700 dark:text-surface-200 text-center leading-tight">{label}</span>
+        <DiffBadge diff={diff} />
       </div>
-      <div className="text-left">
-        <span className={`tabular-nums ${textClass} ${higher === 2 ? 'text-emerald-600 dark:text-emerald-400' : 'text-surface-900 dark:text-white'}`}>
+      <div className="text-left pl-3">
+        <span className={`tabular-nums ${valClass} ${higher === 2 ? 'text-emerald-600 dark:text-emerald-400' : 'text-surface-900 dark:text-white'}`}>
           {formatUSD(val2)}
         </span>
       </div>
@@ -71,10 +78,10 @@ function CareerHeader({ career, accent }: { career: CareerInput; accent: 'blue' 
   );
 }
 
-function SectionIcon({ icon: Icon, label, accentIcon }: { icon: typeof DollarSign; label: string; accentIcon: string }) {
+function SectionLabel({ icon: Icon, label }: { icon: typeof DollarSign; label: string }) {
   return (
     <div className="flex items-center justify-center gap-2 py-3">
-      <div className={`flex h-6 w-6 items-center justify-center rounded-lg ${accentIcon}`}>
+      <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-surface-100 text-surface-700 dark:bg-surface-800 dark:text-surface-200">
         <Icon className="h-3 w-3" />
       </div>
       <span className="text-xs font-semibold uppercase tracking-wider text-surface-700 dark:text-surface-200">{label}</span>
@@ -85,7 +92,7 @@ function SectionIcon({ icon: Icon, label, accentIcon }: { icon: typeof DollarSig
 export function SideBySideResults({ result1, result2, career1, career2 }: SideBySideResultsProps) {
   return (
     <div className="rounded-2xl border border-surface-200 dark:border-surface-700 bg-white dark:bg-surface-900 shadow-sm overflow-hidden animate-in">
-      {/* Header with career details */}
+      {/* Header */}
       <div className="px-6 py-5 border-b border-surface-200 dark:border-surface-700">
         <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-4">
           <CareerHeader career={career1} accent="blue" />
@@ -96,9 +103,22 @@ export function SideBySideResults({ result1, result2, career1, career2 }: SideBy
         </div>
       </div>
 
-      <div className="px-6 py-2">
+      {/* Column labels */}
+      <div className="grid grid-cols-[1fr_minmax(70px,auto)_1fr] px-6 pt-3 pb-1">
+        <div className="text-right pr-3">
+          <span className="text-[10px] font-semibold uppercase tracking-wider text-primary-500">Career 1</span>
+        </div>
+        <div className="text-center">
+          <span className="text-[10px] font-semibold uppercase tracking-wider text-surface-700 dark:text-surface-200">Diff</span>
+        </div>
+        <div className="text-left pl-3">
+          <span className="text-[10px] font-semibold uppercase tracking-wider text-emerald-500">Career 2</span>
+        </div>
+      </div>
+
+      <div className="px-6 py-1">
         {/* Monthly Entitlements */}
-        <SectionIcon icon={DollarSign} label="Monthly Entitlements" accentIcon="bg-surface-100 text-surface-700 dark:bg-surface-800 dark:text-surface-200" />
+        <SectionLabel icon={DollarSign} label="Monthly Entitlements" />
         <div className="divide-y divide-surface-100 dark:divide-surface-800">
           <CompareRow label="Base Pay" val1={result1.basePay} val2={result2.basePay} />
           <CompareRow label="BAS" val1={result1.bas} val2={result2.bas} />
@@ -107,7 +127,7 @@ export function SideBySideResults({ result1, result2, career1, career2 }: SideBy
         </div>
 
         {/* Gross Income */}
-        <SectionIcon icon={TrendingUp} label="Gross Income" accentIcon="bg-surface-100 text-surface-700 dark:bg-surface-800 dark:text-surface-200" />
+        <SectionLabel icon={TrendingUp} label="Gross Income" />
         <div className="divide-y divide-surface-100 dark:divide-surface-800">
           <CompareRow label="Monthly" val1={result1.monthlyGross} val2={result2.monthlyGross} bold />
           <CompareRow label="Annual" val1={result1.annualGross} val2={result2.annualGross} bold />
@@ -115,7 +135,7 @@ export function SideBySideResults({ result1, result2, career1, career2 }: SideBy
         </div>
 
         {/* Net Income */}
-        <SectionIcon icon={User} label="Estimated Net Income" accentIcon="bg-surface-100 text-surface-700 dark:bg-surface-800 dark:text-surface-200" />
+        <SectionLabel icon={User} label="Estimated Net Income" />
         <div className="divide-y divide-surface-100 dark:divide-surface-800">
           <CompareRow label="Monthly" val1={result1.monthlyNet} val2={result2.monthlyNet} bold />
           <CompareRow label="Annual" val1={result1.annualNet} val2={result2.annualNet} bold />
