@@ -1,4 +1,4 @@
-import { DollarSign, TrendingUp, Clock, User, MapPin, ArrowUp, ArrowDown, Minus } from 'lucide-react';
+import { DollarSign, TrendingUp, User, MapPin, ArrowUp, ArrowDown, Minus } from 'lucide-react';
 import type { PayBreakdown, CareerInput } from '../types/pay';
 import { formatUSD } from '../utils/calculations';
 import { RANKS, YEARS_OF_SERVICE } from '../data/ranks';
@@ -51,26 +51,22 @@ function CareerHeader({ career, accent }: { career: CareerInput; accent: 'blue' 
     ? 'bg-primary-100 text-primary-700 dark:bg-primary-900/40 dark:text-primary-300'
     : 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300';
   const dotClass = accent === 'blue' ? 'bg-primary-500' : 'bg-emerald-500';
+  const align = accent === 'blue' ? 'items-end text-right' : 'items-start text-left';
 
   return (
-    <div className={`flex-1 ${accent === 'blue' ? 'text-right' : 'text-left'}`}>
-      <div className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wide ${badgeClass} mb-2`}>
+    <div className={`flex flex-col ${align}`}>
+      <div className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wide ${badgeClass}`}>
         <span className={`h-2 w-2 rounded-full ${dotClass}`} />
         {accent === 'blue' ? 'Career 1' : 'Career 2'}
       </div>
-      <p className="text-sm font-semibold text-surface-900 dark:text-white">{rankLabel}</p>
-      <div className={`flex items-center gap-3 mt-1 ${accent === 'blue' ? 'justify-end' : 'justify-start'}`}>
-        <span className="inline-flex items-center gap-1 text-xs text-surface-700 dark:text-surface-200">
-          <Clock className="h-3 w-3" />
-          {yosLabel}
+      <p className="text-lg font-bold text-surface-900 dark:text-white mt-2">{rankLabel}</p>
+      <p className="text-xs text-surface-700 dark:text-surface-200 mt-0.5">{yosLabel}</p>
+      {career.bahLocationName && (
+        <span className="inline-flex items-center gap-1 text-xs text-surface-700 dark:text-surface-200 mt-0.5">
+          <MapPin className="h-3 w-3 shrink-0" />
+          {career.bahLocationName}
         </span>
-        {career.bahLocationName && (
-          <span className="inline-flex items-center gap-1 text-xs text-surface-700 dark:text-surface-200">
-            <MapPin className="h-3 w-3" />
-            {career.bahLocationName}
-          </span>
-        )}
-      </div>
+      )}
     </div>
   );
 }
@@ -91,9 +87,9 @@ export function SideBySideResults({ result1, result2, career1, career2 }: SideBy
     <div className="rounded-2xl border border-surface-200 dark:border-surface-700 bg-white dark:bg-surface-900 shadow-sm overflow-hidden animate-in">
       {/* Header with career details */}
       <div className="px-6 py-5 border-b border-surface-200 dark:border-surface-700">
-        <div className="grid grid-cols-[1fr_auto_1fr] items-start gap-2">
+        <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-4">
           <CareerHeader career={career1} accent="blue" />
-          <div className="flex items-center justify-center pt-2">
+          <div className="flex items-center justify-center">
             <span className="text-xs font-bold text-surface-700 dark:text-surface-200 uppercase tracking-widest">vs</span>
           </div>
           <CareerHeader career={career2} accent="emerald" />

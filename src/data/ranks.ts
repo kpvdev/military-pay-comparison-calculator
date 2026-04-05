@@ -1,18 +1,18 @@
 import type { RankInfo } from '../types/pay';
 
 export const RANKS: RankInfo[] = [
-  { value: 'E1', label: 'E-1 / Airman Basic', category: 'enlisted' },
-  { value: 'E2', label: 'E-2 / Airman', category: 'enlisted' },
-  { value: 'E3', label: 'E-3 / Airman First Class', category: 'enlisted' },
-  { value: 'E4', label: 'E-4 / Senior Airman', category: 'enlisted' },
-  { value: 'E5', label: 'E-5 / Staff Sergeant', category: 'enlisted' },
-  { value: 'E6', label: 'E-6 / Technical Sergeant', category: 'enlisted' },
-  { value: 'E7', label: 'E-7 / Master Sergeant', category: 'enlisted' },
-  { value: 'E8', label: 'E-8 / Senior Master Sergeant', category: 'enlisted' },
-  { value: 'E9', label: 'E-9 / Chief Master Sergeant', category: 'enlisted' },
-  { value: 'O1E', label: 'O-1E / 2nd Lieutenant (Prior Enlisted)', category: 'officer' },
-  { value: 'O2E', label: 'O-2E / 1st Lieutenant (Prior Enlisted)', category: 'officer' },
-  { value: 'O3E', label: 'O-3E / Captain (Prior Enlisted)', category: 'officer' },
+  { value: 'E1', label: 'E-1', category: 'enlisted' },
+  { value: 'E2', label: 'E-2', category: 'enlisted' },
+  { value: 'E3', label: 'E-3', category: 'enlisted' },
+  { value: 'E4', label: 'E-4', category: 'enlisted' },
+  { value: 'E5', label: 'E-5', category: 'enlisted' },
+  { value: 'E6', label: 'E-6', category: 'enlisted' },
+  { value: 'E7', label: 'E-7', category: 'enlisted' },
+  { value: 'E8', label: 'E-8', category: 'enlisted' },
+  { value: 'E9', label: 'E-9', category: 'enlisted' },
+  { value: 'O1E', label: 'O-1E', category: 'officer' },
+  { value: 'O2E', label: 'O-2E', category: 'officer' },
+  { value: 'O3E', label: 'O-3E', category: 'officer' },
 ];
 
 export const YEARS_OF_SERVICE = [
