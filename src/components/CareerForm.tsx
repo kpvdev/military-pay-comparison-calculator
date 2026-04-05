@@ -228,7 +228,7 @@ export function CareerForm({ label, career, onChange, onCalculate, onClear, onCo
           </div>
 
           {bahMode === 'zip' ? (
-            <div className="space-y-3">
+            <div className="space-y-5">
               {/* Zip Code Input */}
               <div className="relative">
                 <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-surface-700 dark:text-surface-200" />
